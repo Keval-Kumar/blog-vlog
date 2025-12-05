@@ -1,0 +1,69 @@
+.vlog-background {
+right: -10vmax;
+bottom: -20vmax;
+background: radial-gradient(circle at 70% 70%, rgba(102, 157, 225, 0.9), rgb(106, 225, 110));
+animation-duration: 12s;
+}
+
+
+@keyframes float {
+0% { transform: translateY(0) scale(1); }
+50% { transform: translateY(-6%) scale(1.03); }
+100% { transform: translateY(0) scale(1); }
+}
+
+
+/* ensure content is above the blobs */
+.vlog-background > * {
+position: relative;
+z-index: 1;
+}
+
+
+/* Card/video tweaks */
+.MuiCard-root {
+background: rgba(95, 8, 207, 0.162) !important;
+box-shadow: 0 8px 30px rgba(2, 6, 23, 0.851) !important;
+border-radius: 12px !important;
+}
+
+
+.MuiCardMedia-root {
+border-radius: 8px;
+overflow: hidden;
+background: #000;
+}
+
+
+/* glass-like comment boxes */
+.comment-box {
+background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+backdrop-filter: blur(6px) saturate(120%);
+border: 1px solid rgba(255,255,255,0.06);
+transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.comment-box:hover {
+transform: translateY(-6px);
+box-shadow: 0 12px 30px rgba(2,6,23,0.5);
+}
+
+
+/* nice spacing for Typography */
+.vlog-background .MuiTypography-root {
+color: rgba(250,250,255,0.95);
+}
+
+
+/* responsive video */
+.MuiCardMedia-root video {
+width: 100%;
+height: auto;
+display: block;
+}
+
+
+/* small screens adjustments */
+@media (max-width: 720px) {
+.vlog-background { padding: 18px !important; border-radius: 0; }
+.MuiCardMedia-root { height: auto !important; }
+}

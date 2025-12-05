@@ -1,0 +1,98 @@
+
+/* Light, warm & pastel background (no blue) for AddVlog */
+.addvlog-root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* warm pastel gradient: peach -> cream -> mint */
+  background: linear-gradient(135deg, #d2a267 0%, #fff4e6 50%, #7de26386 100%);
+  animation: gradientFlow 10s ease infinite;
+  background-size: 300% 300%;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* subtle textured backdrop layer with warm tones */
+.addvlog-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 12% 18%, rgba(107, 214, 148, 0.907) 0%, rgba(218, 123, 28, 0.534) 45%, transparent 95%);
+  filter: saturate(1.02);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* soft pastel orbs (avoid blue tones) */
+.addvloggradient-orb {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(64px);
+  opacity: 0.56;
+  animation: floaty 18s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+.orb-1 { top: -8%; left: -10%; background: rgba(255,209,186,0.88); } /* coral/peach */
+.orb-2 { bottom: -12%; right: -6%; background: rgba(255,230,167,0.86); animation-delay: 5s; } /* soft melon */
+.orb-3 { top: 36%; left: 62%; background: rgba(181, 101, 210, 0.78); animation-delay: 9s; } /* gentle lavender-pink */
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-30px) scale(1.06); }
+}
+
+/* glassy, light form card with warm text colors */
+.addvlogform-card {
+  z-index: 2;
+  width: 100%;
+  max-width: 720px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px) saturate(1.03);
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 8px 30px rgba(31, 45, 61, 0.06);
+  border: 1px solid rgba(255,245,240,0.6);
+  color: #243028; /* deep soft green for text */
+}
+
+/* inputs and buttons styled for light theme */
+.addvlogform-card .MuiInputBase-input,
+.addvlogform-card .MuiInputBase-input::placeholder {
+  color: #243028;
+}
+
+.addvlogform-card .MuiFormLabel-root {
+  color: rgba(36,48,40,0.85);
+}
+
+.addvlogform-card .MuiButton-containedPrimary {
+  box-shadow: 0 6px 18px rgba(255, 209, 186, 0.14);
+}
+
+.addvlogform-card .MuiButton-containedSecondary {
+  box-shadow: 0 6px 18px rgba(244, 214, 255, 0.10);
+}
+
+/* small responsive tweaks */
+@media (max-width: 680px) {
+  .addvloggradient-orb { display: none; }
+  .addvlogform-card { padding: 18px; border-radius: 12px; }
+}
+
+/* accessibility: reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .addvloggradient-orb, .addvlog-root { animation: none; }
+}
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.04); }
+}

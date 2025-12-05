@@ -1,0 +1,24 @@
+ /* Full-screen animated background */
+        .addblogpage-bg { position: absolute; inset: 0; z-index: 1; overflow: hidden; }
+        .addblogbg-gradient { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 20%, rgba(114, 162, 220, 0.53), transparent 15%), radial-gradient(ellipse at 70% 80%, rgba(204, 109, 32, 0.47), transparent 15%), linear-gradient(135deg, #0f172a 0%, #2ce47f7f 100%); filter: contrast(1.05) saturate(1.05); }
+
+        /* Soft blurred 'glass' texture above gradient */
+        .addblogglass-pattern { position: absolute; inset: -20%; background: repeating-linear-gradient(45deg, rgba(31, 117, 203, 0) 0 1px, transparent 1px 12px); mix-blend-mode: overlay; opacity: 0.6; }
+
+        /* moving blobs */
+        .addblogblob { position: absolute; border-radius: 50%; filter: blur(36px); opacity: 0.9; transform: translate3d(0,0,0); }
+        .addblogblob-1 { width: 520px; height: 520px; left: -10%; top: -8%; background: rgba(42, 44, 197, 0.241); animation: floatA 16s ease-in-out infinite; }
+        .addblogblob-2 { width: 420px; height: 420px; right: -8%; top: 20%; background: rgba(16, 185, 129, 0.351); animation: floatB 18s ease-in-out infinite; }
+        .addblogblob-3 { width: 360px; height: 360px; left: 20%; bottom: -10%; background: rgba(236, 72, 154, 0.044); animation: floatC 20s ease-in-out infinite; }
+
+        @keyframes floatA { 0% { transform: translateY(0) scale(1); } 50% { transform: translateY(40px) scale(1.06); } 100% { transform: translateY(0) scale(1); } }
+        @keyframes floatB { 0% { transform: translateY(0) scale(1); } 50% { transform: translateY(-30px) scale(1.05); } 100% { transform: translateY(0) scale(1); } }
+        @keyframes floatC { 0% { transform: translateY(0) scale(1); } 50% { transform: translateY(50px) scale(0.98); } 100% { transform: translateY(0) scale(1); } }
+
+        /* small responsiveness touches */
+        @media (max-width: 600px) {
+          .addblogblob-1, .addblogblob-2, .addblogblob-3 { display: none; }
+        }
+
+        /* Improve input placeholder contrast on dark background */
+        .MuiInputBase-input::placeholder { color: rgb(224, 193, 193); }

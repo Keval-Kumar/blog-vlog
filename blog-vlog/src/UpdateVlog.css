@@ -1,0 +1,75 @@
+
+:root{
+  --bg-a: #92e06479; /* deep navy */
+  --bg-b: #c988baae; /* dark teal */
+  --accent-a: #599db84a; /* bright cyan */
+  --accent-b: #3a5cc3; /* mint */
+  --panel: rgba(197, 125, 86, 0.886);
+  --muted: rgba(220,240,248,0.9);
+}
+
+.updatevlog-shell{
+  background: linear-gradient(180deg, var(--bg-a) 0%, var(--bg-b) 45%);
+  min-height: 100vh;
+  padding: 48px 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.updatevlog-container{
+  width: 100%;
+  max-width: 820px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(151, 194, 236, 0.947));
+  border-radius: 12px;
+  padding: 26px;
+  box-shadow: 0 16px 48px rgba(3,8,16,0.6);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.updatevlog-container::before{
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+
+.updatevlog-form{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.updatevlog-form .MuiTextField-root{
+  background: var(--panel);
+  border-radius: 8px;
+}
+
+.updatevlog-form .MuiInputBase-input{
+  color: var(--muted);
+}
+
+.updatevlog-form label{
+  color: rgba(200,235,245,0.8);
+}
+
+/* previews */
+.preview-card img, .preview-card video{
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+/* buttons */
+.MuiButton-containedPrimary{
+  background: linear-gradient(90deg, var(--accent-a) 0%, var(--accent-b) 100%);
+  color: rgba(2,12,18,0.98);
+}
+
+/* responsive tweaks */
+@media (max-width: 720px){
+  .updatevlog-shell{ padding: 20px 12px; }
+  .updatevlog-container{ padding: 18px; border-radius: 8px; }
+  .updatevlog-form{ gap: 12px; }
+}
+
+/* AOS perf hint */
+[data-aos]{ will-change: transform, opacity; }
